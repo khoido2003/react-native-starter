@@ -1,0 +1,3 @@
+// Set the ip of expo to match the pc ip address
+
+setx /M REACT_NATIVE_PACKAGER_HOSTNAME 192.168.113.11
