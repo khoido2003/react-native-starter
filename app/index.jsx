@@ -7,9 +7,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { images } from "../constants";
 import CustomButton from "../components/custom-button";
 import { StatusBar } from "expo-status-bar";
+import { useGlobalContext } from "../context/global-provider";
 
 export default function App() {
-  1;
+  const { isLoading, isLoggedIn } = useGlobalContext();
+
+  if (!isLoading && isLoggedIn) return <Redirect href="/home" />;
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView className="bg-primary h-full">
