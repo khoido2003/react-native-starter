@@ -19,11 +19,9 @@ export const useAppwrite = (fn) => {
 
   useEffect(() => {
     fetchData();
-    console.log(data);
   }, []);
 
   const refetch = () => fetchData();
-  console.log(data);
 
   return { data, loading, refetch };
 };
