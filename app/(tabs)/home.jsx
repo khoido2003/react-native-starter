@@ -16,6 +16,7 @@ import EmptyState from "../../components/empty-state";
 import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import { useAppwrite } from "../../hooks/useAppwrite";
 import VideoCard from "../../components/video-card";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
   const {
@@ -98,6 +99,8 @@ const Home = () => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       />
+
+      <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 };
