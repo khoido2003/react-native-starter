@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 
 import { icons } from "../../constants";
 
-import { Tabs, Redirect } from "expo-router";
+import { Tabs } from "expo-router";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
