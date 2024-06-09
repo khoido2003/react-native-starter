@@ -7,7 +7,7 @@ import FormField from "../../components/form-field";
 
 import CustomButton from "../../components/custom-button";
 import { Link, router } from "expo-router";
-import { signIn } from "../../lib/appwrite";
+import { getCurrentUser, signIn } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/global-provider";
 
 const SignIn = () => {
@@ -28,7 +28,9 @@ const SignIn = () => {
     setIsSubmiting(true);
 
     try {
-      const result = await signIn(form.email, form.password);
+      await signIn(form.email, form.password);
+
+      const result = await getCurrentUser();
 
       setUser(result);
       setIsLoggedIn(true);
@@ -39,7 +41,6 @@ const SignIn = () => {
     } finally {
       setIsSubmiting(false);
     }
-    createUser();
   };
 
   return (

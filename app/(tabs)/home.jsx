@@ -17,6 +17,7 @@ import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import { useAppwrite } from "../../hooks/useAppwrite";
 import VideoCard from "../../components/video-card";
 import { StatusBar } from "expo-status-bar";
+import { useGlobalContext } from "../../context/global-provider";
 
 const Home = () => {
   const {
@@ -30,6 +31,8 @@ const Home = () => {
     refetch: refetchLatestPosts,
   } = useAppwrite(getLatestPosts);
   const [refreshing, setRefreshing] = useState(false);
+
+  const { user, setUser, setIsLoggedIn } = useGlobalContext();
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -61,10 +64,10 @@ const Home = () => {
             <View className="justify-between items-start flex-row mb-6">
               <View>
                 <Text className="font-pmedium text-sm text-gray-100 ">
-                  Welcome back
+                  Welcome back,
                 </Text>
                 <Text className="text-2xl font-semibold text-white">
-                  Khoi Do
+                  {user?.username}
                 </Text>
               </View>
 
